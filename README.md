@@ -1,2 +1,3 @@
 # ML
-Here, I hold my work for my ML group projects
+Our group's
+## Project Proposal
