@@ -1,3 +1,2 @@
 # ML
-Our group's
-## Project Proposal
+Our group's Project Proposal
