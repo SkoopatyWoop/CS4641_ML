@@ -26,7 +26,17 @@
   * Create bot that can analyze posts on reddit that have replies tagging our reddit bot
 
 
-
+|Date   | People Assigned  | Dates  |
+|---    |---               |---     |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
 
 
 
