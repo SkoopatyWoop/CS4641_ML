@@ -9,17 +9,17 @@
  * Misinformation on the Internet has been an ever-present problem in the age of information, leading to greater difficulty in finding trustworthy, ethical guidance online. Following advice on the internet is dangerous in and of itself, but if we can help classify advice as ethically correct or incorrect, we can help mitigate the negative effects of misinformation and help steer users towards making the decision they want to make.
 
 
-## Methods: Dataset	
-  * Data will be pulled from two subreddits: r/LifeProTips and r/UnethicalLifeProTips
-  * Use Reddit API for collecting data, and store in Azure SQL for free ~250 GB storage
-  * Data will be labeled as “ethical” or “unethical” accordingly
-    * We assume all data from r/LifeProTips is ethical, all data from r/UnethicalLifeProTips is unethical
-  * Projected number of samples is ~2 million
-  * The features include post title, body text, upvotes, downvotes, and metadata
-## Methods: Learning
-  * Supervised learning
-  * Logistic Regression: to classify ethical/unethical.
-  * Bag of Words: to convert words to a vector, we want to represent our words by a vector, as well as the frequency of the words 
+## Methods: Dataset / Learning
+ * Using Logistic Regression to classify ethical/unethical.
+ * Bag of words: to convert words to a vector, we want to represent our words by a vector, as well as the frequency of the words for the features for training a classifier
+ * Potential results and Discussion (The results may change while you are working on the project and it is fine; that's why it is called research)
+ * The goal is to have a model capable of classifying new text as either ethical or unethical.
+
+## Refrences
+  * Barnes, K., Riesenmy, T., Trinh, M., Lleshi, E., Balogh, N., & Molontay, R. (2021, March 09). Dank or not? analyzing and predicting the popularity of memes on Reddit - Applied Network Science. Retrieved February 23, 2022, from https://appliednetsci.springeropen.com/articles/10.1007/s41109-021-00358-7
+  * Chew, R., Kery, C., Baum, L., Bukowski, T., Kim, A., & Navarro, M. (n.d.). Predicting age groups of reddit users based on posting behavior and metadata: Classification Model Development and validation. Retrieved February 23, 2022, from https://publichealth.jmir.org/2021/3/e25807/
+  * Donelson, C., Sutter, C., Pham, G., Narang, K., Wang, C., & Yun, J. (2021, February 27). Using a machine learning methodology to analyze reddit posts regarding child feeding information - journal of child and family studies. Retrieved February 23, 2022, from https://link.springer.com/article/10.1007/s10826-021-01923-5
+
 ## Potential Goals and Applications
   * Establish a model to classify new text as ethical or unethical
   * General analysis of what makes a post ethical
