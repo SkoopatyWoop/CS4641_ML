@@ -42,29 +42,29 @@
 
 
 ### Midterm Report
-Model 1 (M1) Design & Selection
-M1 Data Cleaning
-M1 Data Visualization
-M1 Feature Reduction
-M1 Implementation & Coding
-M1 Results Evaluation
-Model 2 (M2) Design & Selection
-M2 Data Cleaning
-M2 Data Visualization
-M2 Feature Reduction
-M2 Coding & Implementation
-M2 Results Evaluation
-Midterm Report
-Final Report
-Model 3 (M3) Design & Selection
-M3 Data Cleaning
-M3 Data Visualization
-M3 Feature Reduction
-M3 Implementation & Coding
-M3 Results Evaluation
-M1-M3 Comparison
-Video Creation & Recording
-Final Report
+* Model 1 (M1) Design & Selection
+* M1 Data Cleaning
+* M1 Data Visualization
+* M1 Feature Reduction
+* M1 Implementation & Coding
+* M1 Results Evaluation
+* Model 2 (M2) Design & Selection
+* M2 Data Cleaning
+* M2 Data Visualization
+* M2 Feature Reduction
+* M2 Coding & Implementation
+* M2 Results Evaluation
+* Midterm Report
+* Final Report
+* Model 3 (M3) Design & Selection
+* M3 Data Cleaning
+* M3 Data Visualization
+* M3 Feature Reduction
+* M3 Implementation & Coding
+* M3 Results Evaluation
+* M1-M3 Comparison
+* Video Creation & Recording
+* Final Report
 
 
   
