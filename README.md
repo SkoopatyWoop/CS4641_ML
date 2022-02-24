@@ -26,17 +26,18 @@
   * Create bot that can analyze posts on reddit that have replies tagging our reddit bot
 
 
-|Date   | People Assigned  | Dates  |
+|Date   | People Assigned  | Tasks  |
 |---    |---               |---     |
-|   |   |   |
-|   |   |   |
-|   |   |   |
-|   |   |   |
-|   |   |   |
-|   |   |   |
-|   |   |   |
-|   |   |   |
-|   |   |   |
+| 3/4  | Aubrey, Andy, Vikas  | Data cleaning, Data visualization, Feature reduction|
+| 3/11  | All members, Krish, Leul  | Implementation and coding Results and evaluation |
+| 3/18  |Vikas, Leul, Krish|  Data cleaning, Data visualization, Feature reduction (As needed) |
+|3/25| Aubrey, Andy, Vikas|  Implementation and coding Results and evaluation |
+|4/1| All members| Cleaning up the work so far (runway) Draft Midterm report|
+| 4/5  | All members  |  Midterm report date |
+|4/8| All members Leul, Krish| Finalize Codes Test model |
+| 4/15| All members| Draft final report  |
+| 4/22  |  All members | Record video  |
+|  4/26     | All members| Project due|
 
 
 
