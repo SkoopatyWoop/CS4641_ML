@@ -1,9 +1,10 @@
 import datetime
 import praw
 import time
-import json
+from azure.cosmos.exceptions import CosmosResourceExistsError
+import azure.cosmos.cosmos_client as cosmos_client
+from azure.cosmos.partition_key import PartitionKey
 from psaw import PushshiftAPI
-from pymongo import MongoClient
 from dotenv import dotenv_values
 from queries.Queries import Queries
 
@@ -17,9 +18,22 @@ def main():
     reddit = PushshiftAPI()
     praw_reddit = praw.Reddit("bot", user_agent="bot user agent")
     praw_reddit.config.store_json_result = True
-    client = MongoClient(f"mongodb+srv://{config['MONGODB_USERNAME']}:{config['MONGODB_PASSWORD']}@prd.bfu3q.mongodb.net/test")
-    db = client.prd
-    collection = db.data
+    client = cosmos_client.CosmosClient(
+        config['AZURE_SQL_HOST'],
+        {
+            'masterKey': config['AZURE_SQL_MASTER_KEY']
+        },
+        user_agent="CosmosDBPythonQuickstart",
+        user_agent_overwrite=True
+    )
+    db = client.create_database_if_not_exists(id=config['AZURE_SQL_DATABASE_ID'])
+    print('Database with id \'{0}\' initialized'.format(config['AZURE_SQL_DATABASE_ID']))
+    container = db.create_container_if_not_exists(
+        id=config['AZURE_SQL_CONTAINER_ID'],
+        partition_key=PartitionKey(path='/ethical_tag'),
+        offer_throughput=1000
+    )
+    print('Container with id \'{0}\' initialized'.format(config['AZURE_SQL_CONTAINER_ID']))
 
     start = time.time()
 
@@ -28,19 +42,28 @@ def main():
                epoch_delta=None,
                epoch_timeinterval=ONE_HOUR_INTERVAL,
                start_epoch=int(datetime.datetime(2022, 1, 1).timestamp()),
-               limit=500000)
+               limit=10)
 
     unethical_submissions = Queries(reddit, praw=praw_reddit) \
         .query(subreddit="UnethicalLifeProTips",
                epoch_delta=None,
                epoch_timeinterval=ONE_HOUR_INTERVAL,
                start_epoch=int(datetime.datetime(2022, 1, 1).timestamp()),
-               limit=500000)
+               limit=10)
 
     print(f"took {time.time() - start} seconds")
 
-    collection.insert(json.loads(ethical_submissions.df.T.to_json()).values())
-    collection.insert(json.loads(unethical_submissions.df.T.to_json()).values())
+    for document in ethical_submissions.submissions:
+        try:
+            container.create_item(document)
+        except CosmosResourceExistsError:
+            pass
+
+    for document in unethical_submissions.submissions:
+        try:
+            container.create_item(document)
+        except CosmosResourceExistsError:
+            pass
 
 
 if __name__ == "__main__":
