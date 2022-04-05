@@ -24,6 +24,7 @@
 ## Results and Discussion 
  * We ran our Naive Bayes model on a dataset of 4,944 total data entries with an equal number of ethical and unethical entries with a test error of 45.7%. This error may seem high, but it also means that our model is slightly better than random, which is what we were hoping for for our first iterations. 
  * For another iteration, our dataset consisted of around 27,000 ethical entries but only 2,472 unethical entries. We shuffled the dataset and trained our Naive Bayes model on the first 80% of the dataset, then tested on the remaining 20% of the dataset. The resulting model was able to predict the testing set with around 65% accuracy. This could be because of the increased amount of data we introduced, or it could be because there is vastly more ethical entries than unethical entries. Our model could have accidentally learned to predict ethical entries every time, and our testing set could just consist of 65% ethical entries. We plan to investigate this further.
+ * We also implemented a Logistic Regression model to run on the same two datasets. On the smaller dataset, the model was 58% accurate.
 
 
 ## References
