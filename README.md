@@ -44,29 +44,8 @@
  * As a group, we decided to impement a Naive Bayes model instead of a Logistic Regression model. This decision was made so that we would be able to have a model running in time for the midterm report. Our reasoning behind this decision was that we were all more familiar with Naive Bayes models than with Logistic Regression models, and if we worked with something that we were more comfortable with, we would be able to implement it faster. Between the midterm report and the final report however, we may implement a Logistic Regression model and compare the accuracy of the two models.
  * For data cleaning, we went through each data entry we scraped from the two subreddits and used some common natural language processing techniques for data cleaning, like filtering out common stop words like "a", "an", or "the". We also found that most of the data entries started with the letters "LPT:" or "ULPT:", so we filtered those characters out of each entry as well. This way, we ensure that our dataset has meaningful data for our model to run with.
  
-* Model 1 (M1) Design & Selection
-* M1 Data Cleaning
-* M1 Data Visualization
-* M1 Feature Reduction
-* M1 Implementation & Coding
-* M1 Results Evaluation
-* Model 2 (M2) Design & Selection
-* M2 Data Cleaning
-* M2 Data Visualization
-* M2 Feature Reduction
-* M2 Coding & Implementation
-* M2 Results Evaluation
-* Midterm Report
-* Final Report
-* Model 3 (M3) Design & Selection
-* M3 Data Cleaning
-* M3 Data Visualization
-* M3 Feature Reduction
-* M3 Implementation & Coding
-* M3 Results Evaluation
-* M1-M3 Comparison
-* Video Creation & Recording
-* Final Report
+### Final Report
+ * Not implemented yet
 
 
   
