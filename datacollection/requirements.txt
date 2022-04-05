@@ -3,3 +3,4 @@ psaw==0.1.0
 python-dotenv==0.19.2
 azure-core==1.23.0
 azure-cosmos==4.2.0
+nltk==3.7
