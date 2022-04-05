@@ -26,7 +26,9 @@ class BOW:
         self.X = self.X[:, sorted(self.X.sum(axis=0).argsort()[-10:][::-1])]
 
         
-    # Bag of words will vectorize each post. It takes a text and 
+    # Bag of words will vectorize each post. It takes a text and creates a vector containing
+    # counts for each word. It will also automatically filter out common words that do not
+    # provide meaning using nltk.corpus.stopwords.words().
     def getBagOfWords(self, text: str) -> List[str]:
         # clean data, remove some unnecessary words
         # im gonna just steal all this - aubrey
@@ -120,4 +122,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

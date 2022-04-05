@@ -12,7 +12,7 @@ def main():
     ethical_submissions = Queries(reddit)\
         .query(subreddit="LifeProTips",
                epoch_delta=1000,
-               epoch_timeinterval=TWELVE_DAYS_INTERVAL,
+               epoch_timeinWterval=TWELVE_DAYS_INTERVAL,
                start_epoch=int(datetime.datetime(2022, 1, 1).timestamp()),
                limit=1000)
 
