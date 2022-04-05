@@ -51,6 +51,18 @@
 
 ### [Video Proposal](https://youtu.be/TdZ1eX-1MKw)
  
+### Midterm Report
+ * As a group, we decided to impement a Naive Bayes model instead of a Logistic Regression model. This decision was made so that we would be able to have a model running in time for the midterm report. Our reasoning behind this decision was that we were all more familiar with Naive Bayes models than with Logistic Regression models, and if we worked with something that we were more comfortable with, we would be able to implement it faster. Between the midterm report and the final report however, we may implement a Logistic Regression model and compare the accuracy of the two models.
+ * For data cleaning, we went through each data entry we scraped from the two subreddits and used some common natural language processing techniques for data cleaning, like filtering out common stop words like "a", "an", or "the". We also found that most of the data entries started with the letters "LPT:" or "ULPT:", so we filtered those characters out of each entry as well. This way, we ensure that our dataset has meaningful data for our model to run with.
+ * To translate the text entries to data our model can read and train on, we used Bag of Words to vectorize the text entries.
+ * After implementing Bag of Words, we plan on plotting the False Positive and False Negative Rates and the Confusion Matrix
+ * Since we are classifying Ethical/Unethical, we are going to have truth and predicted data as an array of 0's and 1's each, this is how the rates and confusion matrices will be made
+ * We have decided to plot False Positives, False Negatives and a Confusion Matrix so that we can see how well our model is running.
+ * We're currently going to limit our top features to 100 so that we don't run out of space on our systems, and so our model can run faster
+ * For our Azure DB, we are using the JSON format to better pull our data into python with more ease, such as our text metadata for classification
+ * We have done dimensionality reduction to make sure we don't have any unnecessary words while we train our model. We have also limited the total number of features (words) to 100 so that we don't run out of memory when training. 
+ * If we have enough time and spatial resources, we will allow more features to train our model
+ * We're using Complement Naive Bayes models to train our models because we read in some papers/docs that it works exceptionally well in training text data.
 ### Final Report
  * Not implemented yet
 
