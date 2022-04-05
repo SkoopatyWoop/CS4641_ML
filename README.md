@@ -43,6 +43,7 @@
 ### Midterm Report
  * As a group, we decided to impement a Naive Bayes model instead of a Logistic Regression model. This decision was made so that we would be able to have a model running in time for the midterm report. Our reasoning behind this decision was that we were all more familiar with Naive Bayes models than with Logistic Regression models, and if we worked with something that we were more comfortable with, we would be able to implement it faster. Between the midterm report and the final report however, we may implement a Logistic Regression model and compare the accuracy of the two models.
  * For data cleaning, we went through each data entry we scraped from the two subreddits and used some common natural language processing techniques for data cleaning, like filtering out common stop words like "a", "an", or "the". We also found that most of the data entries started with the letters "LPT:" or "ULPT:", so we filtered those characters out of each entry as well. This way, we ensure that our dataset has meaningful data for our model to run with.
+ * To translate the text entries to data our model can read and train on, we used Bag of Words to vectorize the text entries.
  
 ### Final Report
  * Not implemented yet
