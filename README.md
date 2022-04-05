@@ -17,14 +17,14 @@
  * In order to ensure that the posts in our dataset were quality posts that were representative of their respective subreddits, we imposed a score requirement of >1. This decreased the number of entries from both subreddits: 27077 ethical and 2472 unethical.
 
 ## Methods: Dataset / Learning
- * Our group decided to change from using Logistic Regression model to Naive Bayes model in order to get the model up and running for the midterm report. We were more familiar with Naive Bayes than with Logistic Regression, so to save on implementation time, we went forward with a Naive Bayes implementation.
+ * Our group implemented both Logistic Regression and Naive Bayes models and compared the accuracy of the two.
  * The dataset we had after data collection consisted of full text posts and labels. However, in order to feed the data to our model and have it make predictions, we need to convert the text posts to word vectors. To do this, we used the natural language processing technique, Bag of Words. Using bag of words, each text post becomes a vector with each element in the vector representing the count of each word in the original text post. We'll be able to feed this data to our Naive Bayes net.
  * We had much more ethical entries than unethical entries. To accomodate for the imbalance in the number of entries for both of our labels, we limited the number of ethical entries our model trained on to equal the number of unethical entries.
 
 ## Results and Discussion 
  * We ran our Naive Bayes model on a dataset of 4,944 total data entries with an equal number of ethical and unethical entries with a test error of 45.7%. This error may seem high, but it also means that our model is slightly better than random, which is what we were hoping for for our first iterations. 
  * For another iteration, our dataset consisted of around 27,000 ethical entries but only 2,472 unethical entries. We shuffled the dataset and trained our Naive Bayes model on the first 80% of the dataset, then tested on the remaining 20% of the dataset. The resulting model was able to predict the testing set with around 65% accuracy. This could be because of the increased amount of data we introduced, or it could be because there is vastly more ethical entries than unethical entries. Our model could have accidentally learned to predict ethical entries every time, and our testing set could just consist of 65% ethical entries. We plan to investigate this further.
- * We also implemented a Logistic Regression model to run on the same two datasets. On the smaller dataset, the model was 58% accurate.
+ * When we ran our Logistic Regression model on the same dataset, it predicted ethicality with 58% accuracy on the smaller dataset. 
 
 
 ## References
