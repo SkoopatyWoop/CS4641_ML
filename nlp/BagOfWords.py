@@ -2,6 +2,8 @@ import nltk
 import numpy as np
 from typing import List
 
+from pyparsing import col
+
 nltk.download('stopwords')
 
 #TODO: once done, plot false negative rate and folse postive rate using matplotlib
@@ -20,10 +22,13 @@ class BOW:
             bag = bags[i]
             row = self.populate_row(bag)
             self.X.append(row)
-        self.X = np.array(self.X)   
-        self.y = np.array(self.y)
-        column_sums = np.sum(self.X, axis=0)
-        self.X = self.X[:, sorted(self.X.sum(axis=0).argsort()[-10:][::-1])]
+        self.X = np.asarray(self.X)
+        self.y = np.asarray(self.y)
+        column_sums = -np.sum(self.X, axis=0)
+        indices = column_sums.argsort()
+        top_100 = indices[:100]
+
+        self.X = self.X[:, top_100]
 
         
     # Bag of words will vectorize each post. It takes a text and creates a vector containing
@@ -32,16 +37,6 @@ class BOW:
     def getBagOfWords(self, text: str) -> List[str]:
         # clean data, remove some unnecessary words
         # im gonna just steal all this - aubrey
-        text = text.lower()
-        text = text\
-            .replace('lpt request', '')\
-            .replace('lpt', '')\
-            .replace('ulpt request', '')\
-            .replace('ulpt', '')\
-            .replace(',', '')\
-            .replace(':', '')\
-            .replace("/", " ")
-        # tokenize
         array = text.split()
         array = [word for word in array if word not in nltk.corpus.stopwords.words('english')]
         

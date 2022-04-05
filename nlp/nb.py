@@ -89,7 +89,7 @@ class NaiveBayes(object):
         return priors_prob
 
     # [5pts]
-    def analyze_star_rating(self, likelihood_ratio, priors_prob, X_test):
+    def analyze(self, likelihood_ratio, priors_prob, X_test):
         '''
         Args:
             likelihood_ratio: (<number of labels>, D) numpy array, the likelihood ratio of different words for different classes of ratings
