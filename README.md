@@ -65,7 +65,7 @@
  * We're using Complement Naive Bayes models to train our models because we read in some papers/docs that it works exceptionally well in training text data.
  * We've started testing our model using CNB (Complement Naive Bayes), we currently have a very accurate prediction rate, but there could be errors since our accuracy is much higher than expected
  * We will be looking at our model more to see if we can find any errors inside our training/testing so we can habve a more realistic prediction rate.
- * We are randomly shuffling our data to see if it will give us more realistic results
+ * We are randomly shuffling our data to see if it will give us more realistic results, but we still have 100% accuracy as of now. Further testing is required.
 ### Final Report
  * Not implemented yet
 
