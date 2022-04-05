@@ -8,7 +8,7 @@ import seaborn as sns
 #TODO: MAKE SURE TO HAVE TRUTH AND PREDICTED DATA LISTS BUILT BEFORE USING THIS
 #for example, look at the default values for y_true and y_pred
 class plot:
-    def __init__(self, y_true = [1,1,0,0,1], y_pred = [1,1,1,0,1]):
+    def __init__(self, y_true, y_pred):
         self.FPR = 0
         self.FNR = 0
         self.y_true = y_true
