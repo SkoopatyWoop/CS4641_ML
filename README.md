@@ -1,4 +1,4 @@
-# ML - G4 Midterm Report
+# ML - G4
 
 ## Introduction/Background
   * The topic is classifying a body of text on its ethicality. There has been substantial research done in the field of classifying the ethicality and/or morality of corpora. This will serve as an extension of existing research by leveraging contemporary text from the popular online forum Reddit. Our dataset will include the text from two highly active subreddits: LifeProTips and UnethicalLifeProTips. The dataset will be labeled as follows: if the post came from LifeProTips, it will be labeled as ethical; if the post came from UnethicalLifeProTips, it will be labeled as Unethical. The estimated samples (posts) is roughly 2 million. The features include: title, body upvotes, downvotes, and certain metadata such as user_id and data_posted.
