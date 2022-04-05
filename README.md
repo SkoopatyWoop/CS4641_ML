@@ -63,6 +63,8 @@
  * We have done dimensionality reduction to make sure we don't have any unnecessary words while we train our model. We have also limited the total number of features (words) to 100 so that we don't run out of memory when training. 
  * If we have enough time and spatial resources, we will allow more features to train our model
  * We're using Complement Naive Bayes models to train our models because we read in some papers/docs that it works exceptionally well in training text data.
+ * We've started testing our model using CNB (Complement Naive Bayes), we currently have a very accurate prediction rate, but there could be errors since our accuracy is much higher than expected
+ * We will be looking at our model more to see if we can find any errors inside our training/testing so we can habve a more realistic prediction rate.
 ### Final Report
  * Not implemented yet
 
