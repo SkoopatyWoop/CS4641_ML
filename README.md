@@ -17,15 +17,14 @@
  * In order to ensure that the posts in our dataset were quality posts that were representative of their respective subreddits, we imposed a score requirement of >1. This decreased the number of entries from both subreddits: 27077 ethical and 2472 unethical.
 
 ## Methods: Dataset / Learning
- * Our group decided to use both Naive Bayes and Logistic Regression to classify ethical and unethical posts.
- * The dataset we had after data collection consisted of full text posts and labels. However, in order to feed the data to our model and have it make predictions, we need to convert the text posts to word vectors.
+* Our group decided to use both Naive Bayes and Logistic Regression to classify ethical and unethical posts.
+* The dataset we had after data collection consisted of full text posts and labels. However, in order to feed the data to our model and have it make predictions, we need to convert the text posts to word vectors.
   
 * Initally, we used the natural language processing technique, Bag of Words. Using bag of words, each text post becomes a vector with each element in the vector representing the count of each word in the original text post. 
 
 * We later found an NLP method called [tf-idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) which converts the text contents of our Reddit posts into word vectors weighted inversely by their frequency in the posts. This works better because uncommon words are better predictors of the ethicality of the post rather than words such as "the". 
 
 * First, we split the reddit posts using an 80% training 20% testing split. Second, we applied either bag of words or tf-idf vectorization to the text contents of our reddit posts. Third, we trained Complement Naive Bayes and Logistic Regression models on the vectorized data. Finally, we used cross validation to determine the accuracy of our model in predicting the ethicality of a Reddit post.
-
  * We had much more ethical entries than unethical entries. To accomodate for the imbalance in the number of entries for both of our labels, we limited the number of ethical entries our model trained on to equal the number of unethical entries.
 
 ## Results and Discussion 
@@ -36,6 +35,7 @@
 * The best performing model on our dataset was Logistic Regression with tf-idf vectorization. It appears that using tf-idf vectorization boosted our accuracy by about 10% for all models. This could be because tf-idf is a more predictive representation of text than bag of words. Especially since tf-idf weights uncommon words more, training on this representation could allow our model to better associate patterns of words with ethicality.
 
  * For another iteration, our dataset consisted of around 27,000 ethical entries but only 2,472 unethical entries. We shuffled the dataset and trained our Naive Bayes model on the first 80% of the dataset, then tested on the remaining 20% of the dataset. The resulting model was able to predict the testing set with around 65% accuracy. This could be because of the increased amount of data we introduced, or it could be because there is vastly more ethical entries than unethical entries. Our model could have accidentally learned to predict ethical entries every time, and our testing set could just consist of 65% ethical entries. We plan to investigate this further.
+ * When we ran our Logistic Regression model on the same dataset, it predicted ethicality with 58% accuracy on the smaller dataset. 
 
 
 ## References
