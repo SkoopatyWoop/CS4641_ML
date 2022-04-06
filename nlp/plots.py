@@ -8,7 +8,7 @@ import seaborn as sns
 #TODO: MAKE SURE TO HAVE TRUTH AND PREDICTED DATA LISTS BUILT BEFORE USING THIS
 #for example, look at the default values for y_true and y_pred
 class plot:
-    def __init__(self, y_true = [1,1,0,0,1], y_pred = [1,1,1,0,1]):
+    def __init__(self, y_true, y_pred):
         self.FPR = 0
         self.FNR = 0
         self.y_true = y_true
@@ -17,7 +17,7 @@ class plot:
         self.cm = confusion_matrix(y_true, y_pred)
 
       
-    def fpr_fnr(self):
+    def fpr_fnr(self, title):
         tn, fp, fn, tp = confusion_matrix(list(self.y_true), list(self.y_pred), labels=[0, 1]).ravel()
 
         accuracy_score(self.y_true, self.y_pred)
@@ -30,7 +30,7 @@ class plot:
         FPR, FNR = fp / tot, fn / tot
         ax = sns.heatmap(self.cm, annot=True, cmap='Blues')
 
-        ax.set_title('Seaborn Confusion Matrix with labels\n\n')
+        ax.set_title('Confusion Matrix for Logistic Regression')
         ax.set_xlabel('\nPredicted Values')
         ax.set_ylabel('Actual Values ')
 
@@ -45,9 +45,3 @@ class plot:
 
 
         return (FPR, FNR)
-
-
-
-x = plot()
-print(x.cm)
-x.fpr_fnr()
