@@ -17,12 +17,24 @@
  * In order to ensure that the posts in our dataset were quality posts that were representative of their respective subreddits, we imposed a score requirement of >1. This decreased the number of entries from both subreddits: 27077 ethical and 2472 unethical.
 
 ## Methods: Dataset / Learning
- * Our group decided to change from using Logistic Regression model to Naive Bayes model in order to get the model up and running for the midterm report. We were more familiar with Naive Bayes than with Logistic Regression, so to save on implementation time, we went forward with a Naive Bayes implementation.
- * The dataset we had after data collection consisted of full text posts and labels. However, in order to feed the data to our model and have it make predictions, we need to convert the text posts to word vectors. To do this, we used the natural language processing technique, Bag of Words. Using bag of words, each text post becomes a vector with each element in the vector representing the count of each word in the original text post. We'll be able to feed this data to our Naive Bayes net.
+ * Our group decided to use both Naive Bayes and Logistic Regression to classify ethical and unethical posts.
+ * The dataset we had after data collection consisted of full text posts and labels. However, in order to feed the data to our model and have it make predictions, we need to convert the text posts to word vectors.
+  
+* Initally, we used the natural language processing technique, Bag of Words. Using bag of words, each text post becomes a vector with each element in the vector representing the count of each word in the original text post. 
+
+* We later found an NLP method called [tf-idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) which converts the text contents of our Reddit posts into word vectors weighted inversely by their frequency in the posts. This works better because uncommon words are better predictors of the ethicality of the post rather than words such as "the". 
+
+* First, we split the reddit posts using an 80% training 20% testing split. Second, we applied either bag of words or tf-idf vectorization to the text contents of our reddit posts. Third, we trained Complement Naive Bayes and Logistic Regression models on the vectorized data. Finally, we used cross validation to determine the accuracy of our model in predicting the ethicality of a Reddit post.
+
  * We had much more ethical entries than unethical entries. To accomodate for the imbalance in the number of entries for both of our labels, we limited the number of ethical entries our model trained on to equal the number of unethical entries.
 
 ## Results and Discussion 
- * We ran our Naive Bayes model on a dataset of 4,944 total data entries with an equal number of ethical and unethical entries with a test error of 45.7%. This error may seem high, but it also means that our model is slightly better than random, which is what we were hoping for for our first iterations. 
+ * We ran all of our models on a dataset of 4,944 total data entries with an equal number of ethical and unethical entries. 
+
+* Using bag of words, our Naive Bayes model achieved 66.4% accuracy using cross validation with 5 folds. Our Logistic Regression model achieved 70% cross validation accuracy. Using tf-idf our Naive Bayes model achieved 79% cross validation accuracy and our Logistic Regression model achieved 80% cross validation accuracy.
+
+* The best performing model on our dataset was Logistic Regression with tf-idf vectorization. It appears that using tf-idf vectorization boosted our accuracy by about 10% for all models. This could be because tf-idf is a more predictive representation of text than bag of words. Especially since tf-idf weights uncommon words more, training on this representation could allow our model to better associate patterns of words with ethicality.
+
  * For another iteration, our dataset consisted of around 27,000 ethical entries but only 2,472 unethical entries. We shuffled the dataset and trained our Naive Bayes model on the first 80% of the dataset, then tested on the remaining 20% of the dataset. The resulting model was able to predict the testing set with around 65% accuracy. This could be because of the increased amount of data we introduced, or it could be because there is vastly more ethical entries than unethical entries. Our model could have accidentally learned to predict ethical entries every time, and our testing set could just consist of 65% ethical entries. We plan to investigate this further.
 
 
@@ -53,9 +65,12 @@
 ### [Video Proposal](https://youtu.be/TdZ1eX-1MKw)
  
 ### Midterm Report
+ 
+All of our model implementation is done in the [NB_LogReg notebook](nlp/NB_LogReg.ipynb)
+
  * As a group, we decided to impement a Naive Bayes model instead of a Logistic Regression model. This decision was made so that we would be able to have a model running in time for the midterm report. Our reasoning behind this decision was that we were all more familiar with Naive Bayes models than with Logistic Regression models, and if we worked with something that we were more comfortable with, we would be able to implement it faster. Between the midterm report and the final report however, we may implement a Logistic Regression model and compare the accuracy of the two models.
  * For data cleaning, we went through each data entry we scraped from the two subreddits and used some common natural language processing techniques for data cleaning, like filtering out common stop words like "a", "an", or "the". We also found that most of the data entries started with the letters "LPT:" or "ULPT:", so we filtered those characters out of each entry as well. This way, we ensure that our dataset has meaningful data for our model to run with.
- * To translate the text entries to data our model can read and train on, we used Bag of Words to vectorize the text entries.
+ * To translate the text entries to data our model can read and train on, we used Bag of Words and [tf-idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) to vectorize the text entries.
  * After implementing Bag of Words, we plan on plotting the False Positive and False Negative Rates and the Confusion Matrix
  * Since we are classifying Ethical/Unethical, we are going to have truth and predicted data as an array of 0's and 1's each, this is how the rates and confusion matrices will be made
  * We have decided to plot False Positives, False Negatives and a Confusion Matrix so that we can see how well our model is running.
@@ -63,10 +78,19 @@
  * For our Azure DB, we are using the JSON format to better pull our data into python with more ease, such as our text metadata for classification
  * We have done dimensionality reduction to make sure we don't have any unnecessary words while we train our model. We have also limited the total number of features (words) to 100 so that we don't run out of memory when training. 
  * If we have enough time and spatial resources, we will allow more features to train our model
- * We're using Complement Naive Bayes models to train our models because we read in some papers/docs that it works exceptionally well in training text data.
- * We've started testing our model using CNB (Complement Naive Bayes), we currently have a very accurate prediction rate, but there could be errors since our accuracy is much higher than expected
- * We will be looking at our model more to see if we can find any errors inside our training/testing so we can habve a more realistic prediction rate.
- * We are randomly shuffling our data to see if it will give us more realistic results, but we still have 100% accuracy as of now. Further testing is required.
+ * We're using [Complement Naive Bayes models](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.ComplementNB.html) & [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) to train our models because we read that both of these models work very well with NLP classification tasks like our project
+* Using cross validation testing, our Logistic Regression model achieved 79% accuracy and our Logistic Regression model achieved 80% accuracy. The models were* trained on preprocessed reddit post text which was vectorized using tf-idf.
+* After testing several kinds of penalty: L1, L2, elasticnet (L1 & L2), we determined that L2 norm produces the best performance with our dataset.
+
+# Graphs & Images
+
+![Logistic Regression Wordcloud](/images/lr-wordcloud-nosnoo.png "Logistic Regression Wordcloud (No Snoo)")
+
+![Logistic Regression Wordcloud](/images/lr-wordcloud.png "Logistic Regression Wordcloud")
+
+![Confusion Matrix](/images/confusionmatrix.png "Confusion Matrix")
+
+
 ### Final Report
  * Not implemented yet
 

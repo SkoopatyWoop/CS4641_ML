@@ -17,7 +17,7 @@ class plot:
         self.cm = confusion_matrix(y_true, y_pred)
 
       
-    def fpr_fnr(self):
+    def fpr_fnr(self, title):
         tn, fp, fn, tp = confusion_matrix(list(self.y_true), list(self.y_pred), labels=[0, 1]).ravel()
 
         accuracy_score(self.y_true, self.y_pred)
@@ -30,7 +30,7 @@ class plot:
         FPR, FNR = fp / tot, fn / tot
         ax = sns.heatmap(self.cm, annot=True, cmap='Blues')
 
-        ax.set_title('Seaborn Confusion Matrix with labels\n\n')
+        ax.set_title('Confusion Matrix for Logistic Regression')
         ax.set_xlabel('\nPredicted Values')
         ax.set_ylabel('Actual Values ')
 
@@ -45,9 +45,3 @@ class plot:
 
 
         return (FPR, FNR)
-
-
-
-x = plot()
-print(x.cm)
-x.fpr_fnr()
