@@ -84,11 +84,11 @@ All of our model implementation is done in the [NB_LogReg notebook](nlp/NB_LogRe
 
 # Graphs & Images
 
-![Logistic Regression Wordcloud](/images/lr-wordcloud-nosnoo.png "Logistic Regression Wordcloud (No Snoo)")
+[Logistic Regression Wordcloud](/images/lr-wordcloud-nosnoo.png "Logistic Regression Wordcloud (No Snoo)")
 
-![Logistic Regression Wordcloud](/images/lr-wordcloud.png "Logistic Regression Wordcloud")
+[Logistic Regression Wordcloud](/images/lr-wordcloud.png "Logistic Regression Wordcloud")
 
-![Confusion Matrix](/images/confusionmatrix.png "Confusion Matrix")
+[Confusion Matrix](/images/confusionmatrix.png "Confusion Matrix")
 
 
 ### Final Report
